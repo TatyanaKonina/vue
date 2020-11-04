@@ -3,10 +3,11 @@
         <img class="v-catalog-item__image" v-bind:src="require('../assets/images/' + product_data.image) " alt="img">
         <p class="v-catalog-item__name">{{product_data.name}} </p>
         <p class="v-catalog-item__price">Price:{{product_data.price}}</p>
-        <button class="v-catalog-item__add_to_cart_btn btn" v-on:click="$emit('send-article',product_data.article)" >Add to cart</button>
-
-    
-    
+        <button 
+        class="v-catalog-item__add_to_cart_btn btn" 
+        v-on:click="sendArticle" 
+        >Add to cart
+        </button>
     </div>
 
 </template>
@@ -27,8 +28,9 @@ export default {
     },
     computed:{},
     methods: {
-
-        
+        sendArticle(){
+            this.$emit('send-article',this.product_data.article)
+        }
     }
 }
 </script>
