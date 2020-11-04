@@ -6,6 +6,7 @@
                  v-for="product in products"
                  :key="product.article"
                  v-bind:product_data="product"
+                 v-on:send-article="showChildArticle"
             />
 
         </div>
@@ -73,13 +74,18 @@ export default {
     }
     ]}  
     },
-    computed:{}
+    computed:{},
+    methods:{
+      showChildArticle(data){
+        console.log(data)
+      }
+    }
 }
 </script>
 
 <style lang="scss">
 .v-catalog {
-    &_list {
+    &__list {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
