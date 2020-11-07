@@ -6,7 +6,7 @@
                  v-for="product in PRODUCTS"
                  :key="product.article"
                  v-bind:product_data="product"
-                 v-on:send-article="showChildArticle"
+                 v-on:addToCart="addToCart"
             />
 
         </div>
@@ -34,9 +34,12 @@ export default {
         ]),
     },
     methods:{
-      ...mapActions(['GET_PRODUCTS_FROM_API']),
-      showChildArticle(data){
-        console.log(data)
+      ...mapActions([
+          'GET_PRODUCTS_FROM_API',
+          'ADD_TO_CART'
+          ]),
+      addToCart(data){
+        this.ADD_TO_CART(data)
       }
     },
     mounted(){
