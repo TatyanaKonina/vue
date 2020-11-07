@@ -3,7 +3,7 @@
     <h1> Catalog </h1>
         <div class="v-catalog__list">
             <v-catalog-item 
-                 v-for="product in this.$store.state.products"
+                 v-for="product in PRODUCTS"
                  :key="product.article"
                  v-bind:product_data="product"
                  v-on:send-article="showChildArticle"
@@ -15,7 +15,7 @@
 
 <script>
 import vCatalogItem from './v-catalog-item'
-import {mapActions} from 'vuex'
+import {mapActions,mapGetters} from 'vuex'
 export default {
     name:"v-catalog",
     components:{
@@ -28,7 +28,11 @@ export default {
         }
     
     },
-    computed:{},
+    computed:{
+        ...mapGetters([
+            'PRODUCTS'
+        ]),
+    },
     methods:{
       ...mapActions(['GET_PRODUCTS_FROM_API']),
       showChildArticle(data){
