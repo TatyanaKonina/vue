@@ -6,7 +6,7 @@
                  v-for="product in PRODUCTS"
                  :key="product.article"
                  v-bind:product_data="product"
-                 v-on:addToCart="addToCart"
+                 @addToCart="addToCart"
             />
 
         </div>
