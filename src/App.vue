@@ -1,6 +1,6 @@
 <template>
 <div id ="app">
-  <h1>Hello Vie</h1>
+
   <v_main_wrapper/>
 
 </div>

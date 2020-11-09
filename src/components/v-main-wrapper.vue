@@ -1,15 +1,12 @@
 <template>
 <div class ="v-main-wrapper">
+    <router-view></router-view>
     
-    <v-catalog />
+    <!-- <v-catalog />
     <v-cart 
         v-if="CART.length"
         :cart_data="CART"
-
-    
-    
-    
-    />
+    /> -->
 
 </div>
 
@@ -17,17 +14,17 @@
 
 <script>
 
-import vCatalog from './v-catalog.vue'
+// import vCatalog from './v-catalog.vue'
 
-import vCart from './v-cart'
+// import vCart from './v-cart'
 
 import {mapGetters} from 'vuex'
 
 export default {
     name: "v-main-wrapper",
-    components:{
-        vCatalog,vCart
-    },
+    // components:{
+    //     vCatalog,vCart
+    // },
     props :{
         
 
