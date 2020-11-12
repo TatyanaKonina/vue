@@ -5,7 +5,7 @@
         
         
         
-        >Select</p>
+        >{{selected}}</p>
         <div 
             class="options"
             v-if="areOptionsVisible"
@@ -15,6 +15,7 @@
             <p
                 v-for='option in options'
                 :key="option.value"
+                @click="selectOption(option)"
 
             >
                 {{option.name}}
@@ -34,6 +35,10 @@ export default {
             default(){
                 return []
             }
+        },
+        selected:{
+            type:String,
+            default: ''
         }
     },
     data(){
@@ -41,7 +46,23 @@ export default {
             areOptionsVisible : false
         }
     },
-    computed:{}
+    computed:{},
+    methods:{
+        selectOption(option){
+            this.$emit('select', option)
+            this.areOptionsVisible = false
+        },
+        hideSelect( ){
+            this.areOptionsVisible = false
+        }
+    },
+    mounted(){
+        document.addEventListener('click',this.hideSelect.bind(this),true)
+
+    },
+    beforeDestroy(){
+        document.removeEventListener('click',this.hideSelect)
+    }
 }
 </script>
 
@@ -64,6 +85,9 @@ export default {
     right:0;
     width:100%;
 
+}
+.options p:hover{
+    background: #e7e7e7 ;
 }
 
 </style>

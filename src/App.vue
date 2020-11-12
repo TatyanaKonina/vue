@@ -3,10 +3,10 @@
 <div id ="app">
   <v-select
        :options="options"
-
-
-
+       @select="optionSelect"
+       :selected="selected"
   />
+  <p>Option:{{selected}}</p>
 
 
   <!-- <v_main_wrapper/> -->
@@ -24,6 +24,7 @@ export default {
    // v_main_wrapper,
    vSelect
   },
+  
   data(){
     return {
         options:[
@@ -31,7 +32,13 @@ export default {
           {name: 'Option 2',value: 2},
           {name: 'Option 3',value: 3},
           {name: 'Option 4',value: 4}
-        ]
+        ],
+        selected: 'Select'
+    }
+  },
+  methods:{
+    optionSelect(option){
+      this.selected = option.name
     }
   }
 }
