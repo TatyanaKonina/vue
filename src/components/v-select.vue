@@ -1,10 +1,7 @@
 <template>
     <div class="v-select">
         <p class="title"
-             @click="areOptionsVisible= !areOptionsVisible" 
-        
-        
-        
+             @click="areOptionsVisible= !areOptionsVisible"      
         >{{selected}}</p>
         <div 
             class="options"
@@ -71,19 +68,23 @@ export default {
     position:relative;
     width:200px;
     cursor: pointer;
+    text-align: left;
 }
 .title {
-    border:solid 1px;
+    border: solid 1px #aeaeae;
+    padding: 8px;
 }
 .v-select p {
-    margin: 0
+    margin: 0;
 }
 .options {
-    border:solid 1px grey;
-    position:absolute;
-    top : 30px;
-    right:0;
-    width:100%;
+    border: solid 1px #aeaeae;
+    background: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    padding: 8px;;
 
 }
 .options p:hover{

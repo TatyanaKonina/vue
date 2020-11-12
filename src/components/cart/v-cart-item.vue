@@ -59,7 +59,7 @@ export default {
     justify-content: space-between;
     align-items: center;
      box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: 16px;
+    padding: 30px;
     margin-bottom: 16px;
     &__image {
       width: 50px;
