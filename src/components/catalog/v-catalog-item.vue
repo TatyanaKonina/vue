@@ -2,8 +2,19 @@
     <div class = "v-catalog-item">
         <v-popup
             v-if="isInfoPopupVisiable"
+            rightBtnTitle="Add to cart"
             @closePopup="closeInfoPopup"
-        />
+            :popupTitle="product_data.name"
+            @rightBtnAction="addToCart"
+        >
+        <img class="v-catalog-item__image" v-bind:src="require('../../assets/images/' + product_data.image) " alt="img">
+        <div>
+            <p class="v-catalog-item__name">{{product_data.name}} </p>
+            <p class="v-catalog-item__price">Price:{{product_data.price}}</p>
+            <p class="v-catalog-item__price">{{product_data.category}}</p>
+        </div>
+        
+        </v-popup>
 
 
         <img class="v-catalog-item__image" v-bind:src="require('../../assets/images/' + product_data.image) " alt="img">

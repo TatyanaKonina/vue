@@ -1,7 +1,8 @@
 <template>
-<div class="v-popup">
+<div class="popup_wrapper" ref="popup_wrapper">
+    <div class="v-popup">
     <div class="v-popup__header">
-        <span>Popup name</span>
+        <span>{{popupTitle}}</span>
         <span>
             <i 
                class="material-icons"
@@ -13,17 +14,33 @@
          <slot></slot>
     </div>
     <div class="v-popup__footer">
-        <button class="close_modal">Close</button>
-        <button class="submit_btn">Add to cart</button>
+        <button class="close_modal"
+        @click="closePopup"
+        >Close</button>
+        <button 
+        class="submit_btn"
+        @click="rightBtnAction"
+        >{{rightBtnTitle}}</button>
     </div>
 
 </div>
+</div>
+
 </template>
 
 <script>
 export default {
     name:"v-popup",
-    props:{},
+    props:{
+        rightBtnTitle:{
+            type:String,
+            default:'Ok'
+        },
+        popupTitle:{
+            type:String,
+            default:'Popup name'
+        }
+    },
     data(){
         return{}
     },
@@ -31,7 +48,18 @@ export default {
     methods:{
         closePopup(){
             this.$emit('closePopup')
+        },
+        rightBtnAction(){
+            this.$emit('rightBtnAction')
         }
+    },
+    mounted(){
+        let vm = this;
+        document.addEventListener('click',function(item){
+            if(item.target == vm.$refs['popup_wrapper']){
+                vm.closePopup()
+            }
+        })
     }
 }
 </script>
@@ -49,7 +77,7 @@ export default {
     bottom: 0;
   }
   .v-popup {
-      
+
     cursor: pointer;
     padding: 16px;
     position: fixed;
