@@ -1,8 +1,19 @@
 <template>
     <div class = "v-catalog-item">
+        <v-popup
+            v-if="isInfoPopupVisiable"
+            @closePopup="closeInfoPopup"
+        />
+
+
         <img class="v-catalog-item__image" v-bind:src="require('../../assets/images/' + product_data.image) " alt="img">
         <p class="v-catalog-item__name">{{product_data.name}} </p>
         <p class="v-catalog-item__price">Price:{{product_data.price}}</p>
+        <button 
+            class="v-catalog__show_info"
+            @click="showPopupInfo"
+        >
+            Show info</button>
         <button 
         class="v-catalog-item__add_to_cart_btn btn" 
         v-on:click="addToCart" 
@@ -13,8 +24,12 @@
 </template>
 
 <script>
+import vPopup from '../popup/v-popup'
 export default {
     name:"v-catalog-item",
+    components:{
+        vPopup
+    },
     props:{
         product_data:{
             type:Object,
@@ -24,10 +39,19 @@ export default {
         }
     },
     data(){
-        return{}
+        return{
+            isInfoPopupVisiable: false
+        }
     },
     computed:{},
     methods: {
+        showPopupInfo(){
+            this.isInfoPopupVisiable = true;
+
+        },
+        closeInfoPopup(){
+            this.isInfoPopupVisiable = false;
+        },
         addToCart(){
             this.$emit("addToCart",this.product_data)
         }
