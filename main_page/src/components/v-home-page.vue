@@ -25,9 +25,9 @@
         agreement.  
         </p>
         <br>
-        <div class="botton">
-          <h2 class="link">Find Team</h2>
-        </div>
+        <router-link :to="{path:'aketa'}">
+          <button class ="button">Find Team</button>
+        </router-link> 
     </div>
     <div class="end-head">
       <div class="post-navigation">
@@ -142,18 +142,27 @@ export default {
   font-size: 25px;
   font-family: 'Abril Fatface', cursive;
 }
-.botton{
+.button{
   background:none;
   border:3px solid #fff;
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 30px;
   text-transform:upper-case;
-  padding: 10 px 25 px;
+  padding: 10px 325px;
   border-radius: 7px;
   font-weight: bold;
   transition: .4s;
   text-align: center;
+  font-family: 'Fredoka One', cursive;
+  white-space: nowrap;
+  transition: .3s;
+  cursor: pointer;
+}
+.button:hover{
+  color: rgb(212, 0, 159);
+  background-color: rgb(148, 223, 255);
+  opacity: 0.5;
 }
 .post-navigation{
   display: flex;

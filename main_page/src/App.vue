@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <v-home-page/>
+    <!-- <v-home-page/> -->
+    <v-main-wrapper/>
+    <v-anketa-page></v-anketa-page>
   </div>
 </template>
 
 <script>
-import vHomePage from './components/v-home-page.vue'
+import vMainWrapper from './components/v-main-wrapper'
 
 export default {
   name: 'App',
   components: {
-    vHomePage
+    vMainWrapper
   }
 }
 </script>
